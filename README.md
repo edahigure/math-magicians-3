@@ -25,15 +25,6 @@ OPTIONAL SECTIONS:
 After you're finished please remove all the comments and instructions!
 -->
 
-<div align="center">
-  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse README Template</b></h3>
-
-</div>
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -97,7 +88,7 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 - **[A calculator: React component that will hold the core functionality ]**
-- **[nstead of using class based components, this app will use now hooks.]**
+- **[Instead of using class based components, this app will use now hooks.]**
 - **[Single page application]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -229,8 +220,6 @@ Example commands:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [Logic implementation ] **[new_feature_1]**
 - [Events implementation] **[new_feature_2]**
