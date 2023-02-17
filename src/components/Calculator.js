@@ -1,48 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable import/no-extraneous-dependencies
+import calculate from '../logic/calculate';
 
-// eslint-disable-next-line react/prefer-stateless-function
-class Calculator extends React.Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
+function Calculator(props) {
+  const { name } = props;
+  const [total, setTotal] = useState('');
+  const [next, setNext] = useState('');
+  const [operation, setOperation] = useState('');
 
-  render() {
-    const { name } = this.props;
-    return (
-      <div>
-        <p>
-          <strong>{name}</strong>
-        </p>
-        <ul className="list-wrapper">
-          <li key="result" className="item-0">0</li>
-          <li key="AC" className="digit">AC</li>
-          <li key="sign" className="digit">+/-</li>
-          <li key="percentage" className="digit">%</li>
-          <li key="divide" className="operator">
-            <span>&#247;</span>
-          </li>
-          <li key="seven" className="digit">7</li>
-          <li key="eight" className="digit">8</li>
-          <li key="nine" className="digit">9</li>
-          <li key="substract" className="operator">-</li>
-          <li key="four" className="digit">4</li>
-          <li key="five" className="digit">5</li>
-          <li key="six" className="digit">6</li>
-          <li key="multiply" className="operator">*</li>
-          <li key="one" className="digit">1</li>
-          <li key="two" className="digit">2</li>
-          <li key="three" className="digit">3</li>
-          <li key="sum" className="operator">+</li>
-          <li key="zero" className="zero">0</li>
-          <li key="dot" className="digit">.</li>
-          <li key="equal" className="operator">=</li>
-        </ul>
-      </div>
-    );
-  }
+  const handleClick = (e) => {
+    const buttonName = e.target.textContent;
+    const obj = calculate(({ total, next, operation }), buttonName);
+
+    setTotal(obj.total);
+    setNext(obj.next);
+    setOperation(obj.operation);
+  };
+
+  return (
+    <div>
+      <p>
+        <strong>
+          {name}
+        </strong>
+        {total}
+        {next}
+        {operation}
+      </p>
+      <ul className="list-wrapper">
+        <li key="result" className="item-0">
+          {' '}
+          {next || total}
+        </li>
+        <button key="AC" className="digit" type="button" onClick={handleClick}>AC</button>
+        <button key="sign" className="digit" type="button" onClick={handleClick}>+/-</button>
+        <button key="percentage" className="digit" type="button" onClick={handleClick}>%</button>
+        <button key="divide" className="operator" type="button" onClick={handleClick}>
+          <span>&#247;</span>
+        </button>
+        <button key="seven" className="digit" type="button" onClick={handleClick}>7</button>
+        <button key="eight" className="digit" type="button" onClick={handleClick}>8</button>
+        <button key="nine" className="digit" type="button" onClick={handleClick}>9</button>
+        <button key="substract" className="operator" type="button" onClick={handleClick}>-</button>
+        <button key="four" className="digit" type="button" onClick={handleClick}>4</button>
+        <button key="five" className="digit" type="button" onClick={handleClick}>5</button>
+        <button key="six" className="digit" type="button" onClick={handleClick}>6</button>
+        <button key="multiply" className="operator" type="button" onClick={handleClick}>x</button>
+        <button key="one" className="digit" type="button" onClick={handleClick}>1</button>
+        <button key="two" className="digit" type="button" onClick={handleClick}>2</button>
+        <button key="three" className="digit" type="button" onClick={handleClick}>3</button>
+        <button key="sum" className="operator" type="button" onClick={handleClick}>+</button>
+        <button key="zero" className="zero" type="button" onClick={handleClick}>0</button>
+        <button key="dot" className="digit" type="button" onClick={handleClick}>.</button>
+        <button key="equal" className="operator" type="button" onClick={handleClick}>=</button>
+      </ul>
+    </div>
+  );
 }
 
 Calculator.propTypes = {
